@@ -24,6 +24,10 @@ path = "_output/02_svix_and_crash_probability_ipynb.ipynb"
 
 
 # TODO: Register the monitor notebook, `03_daily_monitor_ipynb`, following
+[notebooks.03_daily_monitor_ipynb]
+name = "The Daily SVIX Monitor"
+description = "Daily SVIX, VIX, and option-implied crash probabilities."
+path = "_output/03_daily_monitor_ipynb.ipynb"
 # the two entries above: a name, a description, and the path of the executed
 # notebook that `doit` leaves in `_output/`.
 
@@ -61,6 +65,16 @@ recent session."""
 # reader needs to know (`docs`). The chart below refers to this entry by
 # name, so the site does not build until it exists.
 
+[dataframes.svix_monitor_history]
+name = "SVIX Monitor History"
+description = "One row per trading session with SVIX, VIX, and crash probabilities."
+path = "_output/svix_monitor_history.csv"
+date_col = "date"
+pull_method = "Computed by src/monitor.py from Databento settlements and FRED data."
+docs = """SVIX and VIX are annualized volatility percentages.
+Probabilities are fractions and use the expiry closest to 30 days,
+recorded in days_used. Dates are unique and sorted. The deployment
+workflow preserves this CSV on the monitor-history branch."""
 
 [charts]
 
